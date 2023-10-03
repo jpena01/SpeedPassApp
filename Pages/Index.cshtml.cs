@@ -9,7 +9,7 @@ namespace SpeedPassApp.Pages
         private readonly AppDbContext _context;
 
         [BindProperty]
-        public string Order_Number { get; set; }
+        public string orderNumber { get; set; }
 
         public IndexModel(AppDbContext context)
         {
@@ -22,10 +22,10 @@ namespace SpeedPassApp.Pages
 
         public IActionResult OnPost()
         {
-            var order = _context.Orders.FirstOrDefault(o => o.OrderNumber == Order_Number);
-            if (order != null && order.ScanStatus != 1)
+            var order = _context.Orders.FirstOrDefault(o => o.OrderNumber == orderNumber);
+            if (order != null && order.ScanStatus != true)
             {
-                order.ScanStatus = 1;
+                order.ScanStatus = true;
                 _context.SaveChanges();
             }
 
