@@ -1,15 +1,11 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace SpeedPassApp.Models
+﻿namespace SpeedPassApp.Models
 {
-    [Table("Orders")]
-    public class Orders
+    public class Order
     {
-        [Key]
-        public required string OrderNumber { get; set; }
-        public bool ScanStatus { get; set; }
+        public int ID { get; set; }
+        public string OrderNumber { get; set; }
+        public string CustomerName { get; set; }
+        public int ScanStatus { get; set; }
+        public string QRNumber { get; set; }
     }
 }
-

@@ -7,6 +7,6 @@ namespace SpeedPassApp
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Orders> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
