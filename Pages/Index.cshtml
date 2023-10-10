@@ -1,6 +1,15 @@
 ﻿@page
 @model SpeedPassApp.Pages.IndexModel
 <form method="post">
-    <input asp-for="Order_Number" />
+    <input asp-for="OrderNumber" />
     <button type="submit">Submit</button>
 </form>
+@if (ViewData["PrintRequested"] != null && (bool)ViewData["PrintRequested"])
+{
+    <script>
+        // Trigger print dialog
+        window.onload = function () {
+            window.print();
+        };
+    </script>
+}
