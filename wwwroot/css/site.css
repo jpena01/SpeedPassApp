@@ -1,22 +1,108 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    margin: 0 0 0 0;
+}
+
+.float-container {
+    display: flex;
+    flex-direction: row;
+    margin: 5%;
+}
+
+.float-child {
+    align-content: center;
+    width: 30%
+}
+
+.float-child2 {
+    width: 70%;
+    max-height: 75%;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.logodesc {
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    font-family: 'MS UI Gothic';
+}
+
+.inputpanel {
+    border-radius: 25px;
+    background-color: red;
+    padding: 30px 30px 0px 30px;
+    height: 90%;
+}
+
+.input-child {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.input {
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    font-size: 2em;
+    width: 75%;
+}
+
+.submit {
+    color: yellow;
+    background-color: black;
+    border-radius: 15px;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 2em;
+    border: solid;
+    border-color: black;
+    outline: none;
+    text-align: center;
+    padding: 0 15px 0 15px;
+}
+
+.scantext {
+    font-weight: bold;
+    font-size: 42px;
+    font-style: italic;
+    text-align: left;
+    color: black;
+    font-family: 'MS UI Gothic';
+}
+
+.scantext2 {
+    font-weight: bold;
+    font-size: 42px;
+    font-style: italic;
+    text-align: right;
+    color: black;
+    background-image: url(Arrow2.png);
+    background-position-x: right;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: 128px;
+    font-family: 'MS UI Gothic';
+    height: 200px;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+
+    .OR {
+        font-weight: bold;
+        font-size: 90px;
+        font-style: italic;
+        text-align: center;
+        -webkit-text-stroke: 2px black;
+        -webkit-text-fill-color: white;
+        font-family: 'MS UI Gothic';
+    }
 }

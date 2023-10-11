@@ -1,10 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\lib\bootstrap\**" />
+    <Compile Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+    <Compile Remove="wwwroot\lib\jquery-validation\**" />
+    <Compile Remove="wwwroot\lib\jquery\**" />
+    <Content Remove="wwwroot\lib\bootstrap\**" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+    <Content Remove="wwwroot\lib\jquery-validation\**" />
+    <Content Remove="wwwroot\lib\jquery\**" />
+    <EmbeddedResource Remove="wwwroot\lib\bootstrap\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery-validation\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery\**" />
+    <None Remove="wwwroot\lib\bootstrap\**" />
+    <None Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+    <None Remove="wwwroot\lib\jquery-validation\**" />
+    <None Remove="wwwroot\lib\jquery\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
@@ -16,6 +35,8 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\lib\" />
+    <Folder Include="wwwroot\Styles\" />
   </ItemGroup>
 
 </Project>

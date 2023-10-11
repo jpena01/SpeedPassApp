@@ -27,11 +27,13 @@ namespace SpeedPassApp
                     {
                         app.UseRouting();
 
+                        app.UseStaticFiles(); // Add this line to serve static files from the wwwroot folder
                         app.UseEndpoints(endpoints =>
                         {
                             endpoints.MapRazorPages();
                         });
                     });
                 });
+        
     }
 }

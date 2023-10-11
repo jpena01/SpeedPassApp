@@ -1,0 +1,52 @@
+﻿@page
+@model OrdersReadyForPickupModel
+@{
+    ViewData["Title"] = "Orders Ready for Pickup";
+}
+
+<head>
+    <meta charset="utf-8"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<h1>Orders Ready for Pickup</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Order Number</th>
+            <th>Customer Name</th>
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.ReadyForPickupOrders)
+        {
+            <tr>
+                <td>@order.Order_Number</td>
+                <td>@order.Customer_Name</td>
+                <!-- Add more columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>
+<p id="lastRefreshTime"></p>
+<script>
+    // Function to update orders content from the server and timestamp
+    function updateOrdersContent() {
+        $.get("/OrdersReadyForPickup", function (data) {
+            // Update the content with new data
+            $("#ordersTable").html(data);
+
+            // Update the last refresh timestamp
+            var currentTime = new Date();
+            var formattedTime = currentTime.toLocaleString();
+            $("#lastRefreshTime").text("Last Refreshed: " + formattedTime);
+        });
+    }
+
+    // Call the function initially
+    updateOrdersContent();
+
+    // Set interval to update content every 2 minutes (120,000 milliseconds)
+    setInterval(updateOrdersContent, 30000);
+</script>
