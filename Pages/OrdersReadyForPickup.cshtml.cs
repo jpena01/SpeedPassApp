@@ -18,4 +18,5 @@ public class OrdersReadyForPickupModel : PageModel
         // Retrieve orders that are ready for pickup (ScanStatus = 1)
         ReadyForPickupOrders = _dbContext.Orders.Where(o => o.Scan_Status == true).ToList();
     }
+
 }

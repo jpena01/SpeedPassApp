@@ -122,6 +122,7 @@ body {
     height: 110px;
     top: 0;
     z-index: 1000;
+    text-align: center;
 }
 
 .footer {
@@ -130,10 +131,11 @@ body {
     font-family: 'MS UI Gothic';
     font-size: 90px;
     font-style: italic;
-    position: sticky;
+    position: fixed;
     width: 100%;
     background-color: red;
     height: 110px;
     bottom: 0;
     z-index: 1000;
+    text-align: center;
 }

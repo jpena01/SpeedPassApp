@@ -7,6 +7,15 @@
 <head>
     <meta charset="utf-8"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to reload the page
+        function reloadPage() {
+            location.reload(true); // Reloads the page from the server
+        }
+
+        // Set interval to reload the page every 30 seconds (30000 milliseconds)
+        setInterval(reloadPage, 30000);
+    </script>
 </head>
 <h1>Orders Ready for Pickup</h1>
 
@@ -29,24 +38,3 @@
         }
     </tbody>
 </table>
-<p id="lastRefreshTime"></p>
-<script>
-    // Function to update orders content from the server and timestamp
-    function updateOrdersContent() {
-        $.get("/OrdersReadyForPickup", function (data) {
-            // Update the content with new data
-            $("#ordersTable").html(data);
-
-            // Update the last refresh timestamp
-            var currentTime = new Date();
-            var formattedTime = currentTime.toLocaleString();
-            $("#lastRefreshTime").text("Last Refreshed: " + formattedTime);
-        });
-    }
-
-    // Call the function initially
-    updateOrdersContent();
-
-    // Set interval to update content every 2 minutes (120,000 milliseconds)
-    setInterval(updateOrdersContent, 30000);
-</script>

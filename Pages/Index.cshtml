@@ -15,10 +15,9 @@
             </div>
             <div class="float-child2">
                 <div class="inputpanel">
-                    <div class="input-child">
-                    <form method="post">
-                        <input asp-for="OrderNumber" />
-                        <button type="submit">Submit</button>
+                    <form input="input-child" method="post">
+                        <input class="input" asp-for="OrderNumber" />
+                        <button class="submit" type="submit">Submit</button>
                     </form>
                     @if (ViewData["PrintRequested"] != null && (bool)ViewData["PrintRequested"])
                     {
@@ -29,7 +28,6 @@
                             };
                         </script>
                     }
-                    </div>
                     <div class="scantext">Enter order number here above...</div>
                     <div class="OR">OR</div>
                     <div class="scantext2">Use the scanner to can your Receipts QR Code!</div>
