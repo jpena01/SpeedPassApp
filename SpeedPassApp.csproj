@@ -4,6 +4,9 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageProjectUrl>http://partsmaxinc.co:5000</PackageProjectUrl>
+    <StartupObject>SpeedPassApp.Program</StartupObject>
+    <Description>Kiosk application.</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +26,10 @@
     <None Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
     <None Remove="wwwroot\lib\jquery-validation\**" />
     <None Remove="wwwroot\lib\jquery\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".config\dotnet-tools.json" />
   </ItemGroup>
 
   <ItemGroup>
