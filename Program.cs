@@ -39,8 +39,16 @@ namespace SpeedPassApp
                         webBuilder.UseStartup<Startup>();
                         webBuilder.UseKestrel(options =>
                         {
-                            options.Listen(System.Net.IPAddress.Parse("192.168.1.41"), 80); // Specify your IP and port
-                        });
+                            // Listen on specific IP and port
+                            options.Listen(IPAddress.Parse("192.168.1.41"), 5000); // Port 80 for HTTP
+
+                            // Add a binding for partsmaxinc.co
+                            options.Listen(IPAddress.Parse("192.168.1.41"), 5000, listenOptions =>
+                            {
+                                listenOptions.UseConnectionLogging(); // Enable connection logging
+                            });
+                        })
+                        .UseStartup<Startup>();
                     });
         }
 
@@ -71,14 +79,7 @@ namespace SpeedPassApp
                WebHost.CreateDefaultBuilder(args)
                    .UseKestrel(options =>
                    {
-                       // Listen on specific IP and port
-                       options.Listen(IPAddress.Parse("192.168.1.41"), 5000); // Port 80 for HTTP
 
-                       // Add a binding for partsmaxinc.co
-                       options.Listen(IPAddress.Parse("192.168.1.41"), 5000, listenOptions =>
-                       {
-                           listenOptions.UseConnectionLogging(); // Enable connection logging
-                       });
                    })
                    .UseStartup<Startup>();
         //Kestrel settings here:
