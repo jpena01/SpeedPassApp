@@ -1,0 +1,38 @@
+﻿@page
+@model SpeedPassApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Scan Page";
+}
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="float-container">
+            <div class="float-child">
+                <img class="logo" src="~/css/Logo PMSP.png"/>
+                <p class="logodesc">Pick up faster and get more done with SPEEDPASS!
+                    Order Online, Pre-Pay, and scan your E-mail Receipt!</p>
+            </div>
+            <div class="float-child2">
+                <div class="inputpanel">
+                    <form input="input-child" method="post">
+                        <input class="input" asp-for="OrderNumber" />
+                        <button class="submit" type="submit">Submit</button>
+                    </form>
+                    @if (ViewData["PrintRequested"] != null && (bool)ViewData["PrintRequested"])
+                    {
+                        <script>
+                            // Trigger print dialog
+                            window.onload = function () {
+                                window.print();
+                            };
+                        </script>
+                    }
+                    <div class="scantext">Enter order number here above...</div>
+                    <div class="OR">OR</div>
+                    <div class="scantext2">Use the scanner to can your Receipts QR Code!</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

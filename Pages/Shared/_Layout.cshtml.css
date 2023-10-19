@@ -1,0 +1,27 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/*.navbar {
+    background-color: red;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 90px;
+}
+
+@supports (-webkit-text-stroke: 2px black) {
+    .header-text footer_text {
+        -webkit-text-stroke: 2px black;
+        -webkit-text-fill-color: white;
+        margin: 0 0 0 0;
+        font-family: 'MS UI Gothic';
+        text-align: center;
+    }
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    background-color: red;
+    height: 110px;
+    bottom: 0;
+}*/
