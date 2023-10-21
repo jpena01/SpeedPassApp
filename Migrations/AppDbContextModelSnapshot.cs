@@ -23,28 +23,13 @@ namespace SpeedPassApp.Migrations
 
             modelBuilder.Entity("SpeedPassApp.Models.Order", b =>
                 {
-                    b.Property<string>("OrderNumber")
+                    b.Property<string>("Order_Number")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CustomerEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("QRNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("ScanStatus")
+                    b.Property<bool>("Fulfilled_Status")
                         .HasColumnType("bit");
 
-                    b.HasKey("OrderNumber");
+                    b.HasKey("Order_Number");
 
                     b.ToTable("Orders");
                 });

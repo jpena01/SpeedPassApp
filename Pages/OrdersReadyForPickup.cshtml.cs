@@ -1,22 +1,48 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using SpeedPassApp;
 using SpeedPassApp.Models;
 
-public class OrdersReadyForPickupModel : PageModel
+public class IndexModel : PageModel
 {
-    private readonly AppDbContext _dbContext;
+    private readonly AppDbContext _context;
 
-    public OrdersReadyForPickupModel(AppDbContext dbContext)
+    public IndexModel(AppDbContext context)
     {
-        _dbContext = dbContext;
+        _context = context;
     }
-
     public List<Order> ReadyForPickupOrders { get; private set; }
 
-    public void OnGet()
+    [BindProperty]
+    public string OrderNumber { get; set; }
+    public bool Fulfilled_Status { get; set; }
+
+    public IList<Order> Orders { get; set; }
+
+    public async Task OnGetAsync()
     {
-        // Retrieve orders that are ready for pickup (ScanStatus = 1)
-        ReadyForPickupOrders = _dbContext.Orders.Where(o => o.Scan_Status == true).ToList();
+        Orders = await _context.Orders.ToListAsync();
     }
 
+    public async Task<IActionResult> OnPostAsync()
+    {
+        if (!ModelState.IsValid)
+        {
+            Orders = await _context.Orders.ToListAsync();
+            return Page();
+        }
+
+        var newOrder = new Order
+        {
+            Order_Number = OrderNumber,
+            Fulfilled_Status = false // Set the appropriate value for Fulfilled_Status
+                                         // Set other properties as needed
+        };
+
+        _context.Orders.Add(newOrder);
+        await _context.SaveChangesAsync();
+
+        return RedirectToPage("./OrdersReadyForPickup");
+    }
 }
