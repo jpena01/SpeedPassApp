@@ -8,6 +8,28 @@
     <meta charset="utf-8"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+    <script>
+        // JavaScript to handle remove button click event
+        $(document).ready(function () {
+            $(".remove-button").on("click", function () {
+                var orderId = $(this).data("order-id");
+
+                // Make an AJAX request to remove the order
+                $.ajax({
+                    url: "/OrdersReadyForPickup?handler=RemoveOrder",
+                    type: "POST",
+                    data: { orderId: orderId },
+                    success: function () {
+                        // Reload the page after successful removal
+                        location.reload();
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
         // Function to reload the page
         function reloadPage() {
             location.reload(true); // Reloads the page from the server
@@ -25,6 +47,7 @@
         <tr>
             <td>@order.Order_Number</td>
             <td>@order.Fulfilled_Status</td>
+            <td><button class="remove-button" data-order-id="@order.Order_Number">Remove</button></td>
             <!-- Add more columns as needed -->
         </tr>
     </thead>
