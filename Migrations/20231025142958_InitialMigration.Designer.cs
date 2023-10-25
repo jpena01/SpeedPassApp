@@ -11,7 +11,7 @@ using SpeedPassApp;
 namespace SpeedPassApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231010152148_InitialMigration")]
+    [Migration("20231025142958_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -26,28 +26,16 @@ namespace SpeedPassApp.Migrations
 
             modelBuilder.Entity("SpeedPassApp.Models.Order", b =>
                 {
-                    b.Property<string>("OrderNumber")
+                    b.Property<string>("Order_Number")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CustomerEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Fulfilled_Status")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ID")
                         .HasColumnType("int");
 
-                    b.Property<string>("QRNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("ScanStatus")
-                        .HasColumnType("bit");
-
-                    b.HasKey("OrderNumber");
+                    b.HasKey("Order_Number");
 
                     b.ToTable("Orders");
                 });

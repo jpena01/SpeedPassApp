@@ -14,16 +14,13 @@ namespace SpeedPassApp.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    OrderNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Order_Number = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ID = table.Column<int>(type: "int", nullable: false),
-                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ScanStatus = table.Column<bool>(type: "bit", nullable: false),
-                    QRNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Fulfilled_Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.OrderNumber);
+                    table.PrimaryKey("PK_Orders", x => x.Order_Number);
                 });
         }
 

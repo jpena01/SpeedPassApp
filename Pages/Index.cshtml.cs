@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SpeedPassApp.Models;
 using System.Linq;
 
 namespace SpeedPassApp.Pages
@@ -22,11 +23,30 @@ namespace SpeedPassApp.Pages
 
         public IActionResult OnPost()
         {
-            var order = _context.Orders.FirstOrDefault(o => o.Order_Number == OrderNumber);
-            if (order != null && order.Scan_Status != true)
+            if (!string.IsNullOrEmpty(OrderNumber)) // Check if OrderNumber is not null or empty
             {
-                order.Scan_Status = true;
-                _context.SaveChanges();
+                // Check if an order with the same order number already exists
+                var existingOrder = _context.Orders.FirstOrDefault(o => o.Order_Number == OrderNumber);
+
+                if (existingOrder == null)
+                {
+                    // Create a new order with the provided order number and set scan status to true
+                    var newOrder = new Order
+                    {
+                        Order_Number = OrderNumber,
+                        Fulfilled_Status = false // Set scan status to true for the new order
+                                                // Add other properties of the order as needed
+                    };
+
+                    // Add the new order to the context and save changes to the database
+                    _context.Orders.Add(newOrder);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    // Handle the case where an order with the same order number already exists
+                    // You can add appropriate logic here, such as displaying an error message
+                }
             }
 
             return RedirectToPage("/Index");
