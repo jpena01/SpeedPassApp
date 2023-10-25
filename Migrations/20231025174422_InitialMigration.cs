@@ -14,13 +14,14 @@ namespace SpeedPassApp.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Order_Number = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ID = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Order_Number = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fulfilled_Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.Order_Number);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                 });
         }
 

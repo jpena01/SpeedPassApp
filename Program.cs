@@ -40,7 +40,7 @@ namespace SpeedPassApp
                         webBuilder.ConfigureServices((hostContext, services) =>
                         {
                             services.AddDbContext<AppDbContext>(options =>
-                                options.UseSqlServer(hostContext.Configuration.GetConnectionString("DefaultConnection")));
+                            options.UseSqlServer(hostContext.Configuration.GetConnectionString("DefaultConnection")));
 
                             services.AddRazorPages();
                         });

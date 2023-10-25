@@ -23,16 +23,20 @@ namespace SpeedPassApp.Migrations
 
             modelBuilder.Entity("SpeedPassApp.Models.Order", b =>
                 {
-                    b.Property<string>("Order_Number")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("Fulfilled_Status")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
+                    b.Property<string>("Order_Number")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Order_Number");
+                    b.HasKey("Id");
 
                     b.ToTable("Orders");
                 });

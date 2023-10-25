@@ -4,9 +4,11 @@ namespace SpeedPassApp.Models
 {
     public class Order
     {
-        public int ID { get; set; }
         [Key]
-        public required string Order_Number { get; set; }
-        public required bool Fulfilled_Status { get; set; }
+        public int Id { get; set; }
+        [Required]
+        public string Order_Number { get; set; }
+        [Required]
+        public bool Fulfilled_Status { get; set; }
     }
 }

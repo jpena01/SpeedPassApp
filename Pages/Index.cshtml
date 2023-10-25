@@ -22,7 +22,6 @@
                     @if (ViewData["PrintRequested"] != null && (bool)ViewData["PrintRequested"])
                     {
                         <script>
-                            // Trigger print dialog
                             window.onload = function () {
                                 window.print();
                             };

@@ -30,12 +30,12 @@ namespace SpeedPassApp.Pages
 
                 if (existingOrder == null)
                 {
-                    // Create a new order with the provided order number and set scan status to true
+
                     var newOrder = new Order
                     {
                         Order_Number = OrderNumber,
                         Fulfilled_Status = false // Set scan status to true for the new order
-                                                // Add other properties of the order as needed
+                                                 // Add other properties of the order as needed
                     };
 
                     // Add the new order to the context and save changes to the database
