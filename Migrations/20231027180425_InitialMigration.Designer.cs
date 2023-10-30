@@ -11,7 +11,7 @@ using SpeedPassApp;
 namespace SpeedPassApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231025174422_InitialMigration")]
+    [Migration("20231027180425_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

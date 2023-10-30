@@ -44,6 +44,7 @@ namespace SpeedPassApp.Pages
                 }
                 else
                 {
+                    Console.WriteLine("test");
                     // Handle the case where an order with the same order number already exists
                     // You can add appropriate logic here, such as displaying an error message
                 }
